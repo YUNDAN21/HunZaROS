@@ -1,0 +1,66 @@
+// Auto-generated dependency graph for workspace packages
+digraph dependencies {
+  rankdir=LR;
+  graph [fontname="Helvetica"];
+  node [shape=box, style=filled, fillcolor="lightblue", fontname="Helvetica"];
+
+  // Workspace packages
+  "limo_gazebo_sim";
+  "limo_description";
+  "mbot_recognition";
+  "mbot_navigation";
+  "mbot_slam";
+  "mbot_explore";
+  "hector_map_tools";
+  "hector_imu_attitude_to_tf";
+  "hector_geotiff_plugins";
+  "hector_slam_launch";
+  "hector_compressed_map_transport";
+  "hector_map_server";
+  "hector_marker_drawing";
+  "hector_slam";
+  "hector_trajectory_server";
+  "hector_geotiff";
+  "hector_mapping";
+  "hector_imu_tools";
+
+  // Internal edges (package -> dependency)
+  "limo_gazebo_sim" -> "limo_description";
+
+  "hector_geotiff_plugins" -> "hector_geotiff";
+
+  "hector_slam_launch" -> "hector_mapping";
+  "hector_slam_launch" -> "hector_map_server";
+  "hector_slam_launch" -> "hector_trajectory_server";
+  "hector_slam_launch" -> "hector_geotiff";
+  "hector_slam_launch" -> "hector_geotiff_plugins";
+
+  "hector_compressed_map_transport" -> "hector_map_tools";
+
+  "hector_map_server" -> "hector_map_tools";
+  "hector_map_server" -> "hector_marker_drawing";
+
+  "hector_slam" -> "hector_compressed_map_transport";
+  "hector_slam" -> "hector_geotiff";
+  "hector_slam" -> "hector_geotiff_plugins";
+  "hector_slam" -> "hector_imu_attitude_to_tf";
+  "hector_slam" -> "hector_map_server";
+  "hector_slam" -> "hector_map_tools";
+  "hector_slam" -> "hector_mapping";
+  "hector_slam" -> "hector_marker_drawing";
+  "hector_slam" -> "hector_slam_launch";
+  "hector_slam" -> "hector_trajectory_server";
+
+  "hector_trajectory_server" -> "hector_map_tools";
+  "hector_geotiff" -> "hector_map_tools";
+
+  // Note: many packages depend on external ROS stacks (roscpp, nav_msgs, tf, etc.)
+  // We'll list a few frequently referenced external packages as gray dashed nodes for context.
+  node [shape=box, style="filled,dashed", fillcolor="lightgrey"];
+  "roscpp"; "nav_msgs"; "tf"; "geometry_msgs"; "sensor_msgs"; "visualization_msgs"; "image_transport";
+
+  // Example external edges (not exhaustive):
+  "hector_map_tools" -> "nav_msgs" [style=dashed];
+  "hector_map_server" -> "tf" [style=dashed];
+  "hector_mapping" -> "roscpp" [style=dashed];
+}

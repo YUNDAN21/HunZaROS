@@ -7,8 +7,10 @@ project(hector_mapping)
 find_package(catkin REQUIRED COMPONENTS roscpp nav_msgs visualization_msgs tf message_filters laser_geometry tf_conversions message_generation)
 
 ## System dependencies are found with CMake's conventions
-find_package(Boost REQUIRED COMPONENTS thread signals)
+# 下面两句是后续注释的，出问题的话改回来 TODO
+# find_package(Boost REQUIRED COMPONENTS thread signals)
 include_directories(${Boost_INCLUDE_DIRS})
+find_package(Boost REQUIRED COMPONENTS thread)
 
 # Find Eigen3 (from http://wiki.ros.org/jade/Migration)
 find_package(Eigen3)

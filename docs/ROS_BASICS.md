@@ -38,7 +38,7 @@
 - 包（Package）
   - 概念：ROS 的代码组织单元，一个包里放源代码、消息定义、launch、依赖声明等。
   - 关键文件：`package.xml`（包的元信息、依赖）、`CMakeLists.txt`（构建规则）。
-  - 本项目路径示例：`/home/yundan/limo_ws/src/src/mbot_navigation/package.xml`
+  - 本项目路径示例：`/home/yundan/HunZaROS/src/src/mbot_navigation/package.xml`
 
 ---
 
@@ -46,12 +46,12 @@
 
 - 找包的元信息（package.xml）
 
-  - 路径示例：`/home/yundan/limo_ws/src/src/mbot_navigation/package.xml`。
+  - 路径示例：`/home/yundan/HunZaROS/src/src/mbot_navigation/package.xml`。
   - 打开后可以看到该包依赖了哪些 ROS 包（比如 `roscpp`, `geometry_msgs` 等）。
 
 - 找包的构建规则（CMakeLists.txt）
 
-  - 路径示例：`/home/yundan/limo_ws/src/src/mbot_explore/CMakeLists.txt`。
+  - 路径示例：`/home/yundan/HunZaROS/src/src/mbot_explore/CMakeLists.txt`。
   - 里面定义了如何编译源代码、生成可执行文件、安装哪些文件到工作空间等。
 
 - 找 launch 文件与节点脚本
@@ -60,19 +60,19 @@
 
 示例：
 
-- `limo_description`（模型/描述相关）通常包含 URDF/xacro 文件，说明机器人外形和关节；路径示例：`/home/yundan/limo_ws/src/src/limo/limo_description/`。
-- `limo_gazebo_sim` 用于在 Gazebo 中仿真机器人，通常包含 launch 文件和 Gazebo 插件，路径示例：`/home/yundan/limo_ws/src/src/limo/limo_gazebo_sim/package.xml`。
+- `limo_description`（模型/描述相关）通常包含 URDF/xacro 文件，说明机器人外形和关节；路径示例：`/home/yundan/HunZaROS/src/src/limo/limo_description/`。
+- `limo_gazebo_sim` 用于在 Gazebo 中仿真机器人，通常包含 launch 文件和 Gazebo 插件，路径示例：`/home/yundan/HunZaROS/src/src/limo/limo_gazebo_sim/package.xml`。
 
 ---
 
 ## 3. 常见命令（快速上手）
 
-在工作区根目录 `/home/yundan/limo_ws`：
+在工作区根目录 `/home/yundan/HunZaROS`：
 
 1. 构建
 
 ```bash
-cd /home/yundan/limo_ws
+cd /home/yundan/HunZaROS
 catkin_make   # 或者使用 catkin build（取决于你的环境）
 ```
 
@@ -142,7 +142,7 @@ rqt_graph                # 可视化节点和话题（需要 GUI）
 2. 在终端编译并 source：
 
 ```bash
-cd /home/yundan/limo_ws
+cd /home/yundan/HunZaROS
 catkin_make
 source devel/setup.bash
 ```

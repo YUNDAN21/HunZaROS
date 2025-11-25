@@ -2,7 +2,7 @@
 
     <!-- 设置地图的配置文件 -->
     <arg name="map" default="match_gmapping.yaml" />
-
+    <arg name="robot_namespace" default="/"/>
     <!-- 运行地图服务器，并且加载设置的地图-->
     <node name="map_server" pkg="map_server" type="map_server" args="$(find mbot_navigation)/maps/$(arg map)"/>
         <!-- <param name="frame_id" value="map"/>
@@ -16,5 +16,10 @@
 
     <!-- 运行rviz -->
     <node pkg="rviz" type="rviz" name="rviz" args="-d $(find mbot_navigation)/rviz/nav.rviz"/>
-
+    
+    <!--将Gazebo中的小车位置读出，并发布到 /initialpose，让AMCL（或其他定位节点）使用Gazebo位置作为初始位置-->
+    <node pkg="mbot_navigation" type="gazebo_to_initialpose.py" name="gazebo_to_initialpose" output="screen">
+    <param name="model_name" value="limo$(arg robot_namespace)"/>
+    <param name="frame" value="map"/>
+    </node>
 </launch>
